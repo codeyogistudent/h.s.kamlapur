@@ -85,14 +85,14 @@
             bottom: 0;
         }
 
-        /* Add Photo Container */
+       
         #add-photo-container {
             margin-top: 20px;
-            display: none; /* Hidden by default */
+            display: none; 
         }
 
         #add-photo-container input[type="file"] {
-            display: none; /* Hide default file input */
+            display: none; 
         }
 
         #add-photo-container label, #add-photo-container button {
@@ -122,7 +122,7 @@
             background-color: #218838;
         }
 
-        /* Hidden Admin Button */
+      
         #admin-button {
             position: fixed;
             bottom: 20px;
@@ -133,7 +133,7 @@
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            display: none; /* Hidden by default */
+            display: none; 
             font-size: 20px;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -148,22 +148,21 @@
     <header>
         <h1>Kamlapur Govt. Higher Secondary School</h1>
         <nav>
-            <a href="#about">About</a>
-            <a href="#admissions">Admissions</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
+            <a href="https://codeyogistudent.github.io/h.s.kamlapur.about/">About</a>
+            <a href="https://codeyogistudent.github.io/Addmissionprocess-/">Admissions</a>
+            <a href="https://codeyogistudent.github.io/Gallerypage/">Gallery</a>
+            <a href="https://codeyogistudent.github.io/contactpage/">Contact</a>
         </nav>
     </header>
     <section id="gallery">
         <h2>Slideshow for Users</h2>
-        <!-- Slideshow Container -->
+ 
         <div id="slideshow-container">
             <div class="slideshow-images">
-                <!-- Initially empty -->
+             
             </div>
         </div>
 
-        <!-- Hidden Add Photo Form -->
         <div id="add-photo-container">
             <label for="photo-upload">Choose Photo</label>
             <input type="file" id="photo-upload" accept="image/*">
@@ -176,7 +175,7 @@
         <p>Address: Main Road, Kamlapur<br>Phone: 1234567890<br>Email: school@example.com</p>
     </section>
 
-    <!-- Hidden Admin Button -->
+   
     <button id="admin-button" onclick="showUploadOptions()">+</button>
 
     <footer>
@@ -189,10 +188,9 @@
         const adminButton = document.getElementById('admin-button');
         let index = 0;
 
-        // Function to change slide
+      
         function changeSlide() {
-            if (slideshowImages.children.length === 0) return; // No images, no sliding
-
+            if (slideshowImages.children.length === 0) return; 
             index++;
             if (index >= slideshowImages.children.length) {
                 index = 0;
@@ -200,40 +198,39 @@
             slideshowImages.style.transform = translateX(-${index * 100}%);
         }
 
-        // Automatic Slideshow
+     
         setInterval(changeSlide, 3000);
 
-        // Function to Add Photo
+        
         function addPhoto() {
             const input = document.getElementById('photo-upload');
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
 
-                // Load the uploaded photo
+               
                 reader.onload = function (e) {
                     const newImage = document.createElement('img');
-                    newImage.src = e.target.result; // Set the photo's URL
+                    newImage.src = e.target.result;
                     newImage.alt = 'New Photo';
 
-                    // Add the photo to the slideshow
+                   
                     slideshowImages.appendChild(newImage);
                 };
 
-                reader.readAsDataURL(input.files[0]); // Read the image file
+                reader.readAsDataURL(input.files[0]);
             }
         }
 
-        // Function to Show Hidden Upload Options
         function showUploadOptions() {
-            addPhotoContainer.style.display = 'block'; // Make the buttons visible
-            adminButton.style.display = 'none'; // Hide the admin button
+            addPhotoContainer.style.display = 'block'; 
+            adminButton.style.display = 'none';
             alert('Admin Access Enabled!');
         }
 
-        // Mobile Admin Button (Visible on Long Press)
+       
         document.addEventListener('contextmenu', function (event) {
             event.preventDefault();
-            adminButton.style.display = 'block'; // Show the hidden button
+            adminButton.style.display = 'block';
         });
     </script>
 </body>
